@@ -28,6 +28,7 @@ if [[ "$UID" != "0" ]]; then
     echo "系统架构：$OS_ARCH"
     echo "主机名称：$OS_HOSTNAME"
     echo "当前工作目录：$PWD"
+    echo ""
     exit 1
 else
     Main

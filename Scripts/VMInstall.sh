@@ -15,6 +15,12 @@ function VMInstallTitles(){
 }
 
 function VMInstallMenu(){
+
+    if [[ "$UID" != "0" ]]; then
+        echo "[ !! 请使用sudo权限或切换root运行脚本!! ]"
+        exit 1
+    fi
+
     VMInstallTitles
     VMInstallInfo
     echo "KVM实例磁盘创建 ..."

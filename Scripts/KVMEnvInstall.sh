@@ -12,6 +12,12 @@ function KVMEnvInstallTitles(){
     echo "|========== KVM管理工具 - KVM环境管理 ==========|"
 }
 function KVMEnvInstallMenu(){
+
+    if [[ "$UID" != "0" ]]; then
+        echo "[ !! 请使用sudo权限或切换root运行脚本!! ]"
+        exit 1
+    fi
+
     KVMEnvInstallTitles
     echo "    1.KVM环境 [ 安装 ]"
     echo "    2.KVM环境 [ 卸载 ]"
@@ -142,4 +148,9 @@ function KVMEnvUninstall(){
             KVMSpinLine
         done
     fi
+}
+
+function EnvConfigure(){
+    echo 'user = "root"' >> /etc/libvirt/qemu.conf
+    echo 'group = "root"' >> /etc/libvirt/qemu.conf
 }

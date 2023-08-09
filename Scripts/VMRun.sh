@@ -13,6 +13,12 @@ function VMRunTitles(){
 }
 
 function VMRunMenu(){
+
+    if [[ "$UID" != "0" ]]; then
+        echo "[ !! 请使用sudo权限或切换root运行脚本!! ]"
+        exit 1
+    fi
+
     VMRunTitles
     VMRunInfo
     echo "    1.实例启动（单开）"

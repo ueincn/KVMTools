@@ -13,6 +13,12 @@ function KVMNetworkTitles(){
 }
 
 function KVMNetworkMenu(){
+
+    if [[ "$UID" != "0" ]]; then
+        echo "[ !! 请使用sudo权限或切换root运行脚本!! ]"
+        exit 1
+    fi
+
     KVMNetworkTitles
     KVMRunInfo
     echo "    1.查询网络信息"

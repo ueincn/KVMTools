@@ -13,6 +13,12 @@ function VMMTitles(){
 }
 
 function VMMMenu(){
+
+    if [[ "$UID" != "0" ]]; then
+        echo "[ !! 请使用sudo权限或切换root运行脚本!! ]"
+        exit 1
+    fi
+
     VMMTitles
     echo "    1.VM实例 [ 查询 ]"
     echo "    2.VM实例 [ 启动 ]"
